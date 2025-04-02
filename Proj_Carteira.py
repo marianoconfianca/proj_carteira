@@ -2,8 +2,8 @@ import streamlit as st
 from PIL import Image
 import locale
 import time
-from babel.numbers import format_currency
-from babel.core import UnknownLocaleError
+# from babel.numbers import format_currency
+# from babel.core import UnknownLocaleError
 # from google.cloud import bigquery
 # from bancos_confiante import bq
 import os
@@ -18,12 +18,7 @@ except locale.Error:
     # Ou simplesmente usar o padrão do sistema:
     # locale.setlocale(locale.LC_ALL, '')
 
-def formatar_moeda_brasileira(valor):
-    try:
-        return format_currency(valor, 'BRL', locale='pt_BR')
-    except UnknownLocaleError:
-        # Fallback manual se o locale pt_BR não estiver disponível
-        return f"R$ {valor:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
 
 def calculate_projections(faturamento, prazo_medio):
     # Define a taxa de acordo com o faturamento
@@ -132,9 +127,10 @@ def main():
             projecao_carteira, taxa_total = calculate_projections(faturamento, prazo_medio)
 
             if projecao_carteira is not None:
-                projecao_formatada = formatar_moeda_brasileira(projecao_carteira)
+                # projecao_formatada = formatar_moeda_brasileira(projecao_carteira)
                 # projecao_formatada = format_currency(projecao_carteira, 'BRL', locale='pt_BR')
                 # projecao_formatada = locale.currency(projecao_carteira, grouping=True)
+                projecao_formatada = format_currency(projecao_carteira)
                 st.success(f"A projeção de carteira: {projecao_formatada}")
                 # st.info(f"A taxa aplicada foi: {taxa_total * 100:,.2f}%")
 
