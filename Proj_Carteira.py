@@ -70,7 +70,7 @@ def main():
     resized_image = image.resize((new_width, new_height))
     left_co,cent_co,last_co = st.columns(3)
     with cent_co:
-        st.image(resized_image, use_column_width=False)
+        st.image(resized_image, use_column_width=True)
     # Exibir imagem
     st.title("Simulador de Carteira")
     # Entrada de dados
@@ -131,7 +131,7 @@ def main():
 
         else:
             st.error("Por favor, preencha todos os campos corretamente.")
-        st.warning(f"Lembrando que isso é apenas uma simulação. Para informações mais precisas, envie os documentos para os contatos abaixo:")
+        st.warning("Lembrando que isso é apenas uma simulação. Para informações mais precisas, envie os documentos para os contatos abaixo:")
         st.write("**E-mail:** financeiro@empresa.com")
         st.write("**Telefone:** (11) 1234-5678")
         st.write("**WhatsApp:** (11) 91234-5678")
