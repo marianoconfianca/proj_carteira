@@ -10,7 +10,7 @@ import os
 # BIGQUERY = bq('confianca-fidc', KEY_PATH)
 
 # Configurar a localização para o formato brasileiro
-# locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 
 def calculate_projections(faturamento, prazo_medio):
     # Define a taxa de acordo com o faturamento
