@@ -123,7 +123,8 @@ def main():
             projecao_carteira, taxa_total = calculate_projections(faturamento, prazo_medio)
 
             if projecao_carteira is not None:
-                projecao_formatada = locale.currency(projecao_carteira, grouping=True)
+                projecao_formatada = format_currency(projecao_carteira, 'BRL', locale='pt_BR')
+                # projecao_formatada = locale.currency(projecao_carteira, grouping=True)
                 st.success(f"A projeção de carteira: {projecao_formatada}")
                 # st.info(f"A taxa aplicada foi: {taxa_total * 100:,.2f}%")
 
