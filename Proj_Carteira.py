@@ -74,7 +74,7 @@ def main():
     resized_image = image.resize((new_width, new_height))
     left_co,cent_co,last_co = st.columns(3)
     with cent_co:
-        st.image(resized_image, use_column_width=True, caption="Simulador de Carteira", width=new_width)
+        st.image(resized_image, use_container_width=True)
     # Exibir imagem
     st.title("Simulador de Carteira")
     # Entrada de dados
