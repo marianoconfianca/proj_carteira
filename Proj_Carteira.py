@@ -114,7 +114,7 @@ def main():
     prazo_medio = st.radio("Selecione o prazo médio de vendas (em dias):", prazo_medio_options)
 
     # Botão para calcular
-    if st.button("Calcular Projeção de Carteira"):
+    if st.button("Simular"):
         # Exibir fogos de artifício ao aprovar o crédito
         
         
@@ -131,12 +131,12 @@ def main():
                 # projecao_formatada = format_currency(projecao_carteira, 'BRL', locale='pt_BR')
                 # projecao_formatada = locale.currency(projecao_carteira, grouping=True)
                 projecao_formatada = format_currency(projecao_carteira)
-                st.success(f"A projeção de carteira: {projecao_formatada}")
+                st.success(f"O Limite de crédito: {projecao_formatada}")
                 # st.info(f"A taxa aplicada foi: {taxa_total * 100:,.2f}%")
 
                 # Exibir tabela com os resultados
                 st.table({
-                    "Descrição": ["Projeção de Carteira"], #"Taxa Total",
+                    "Descrição": ["Limite de Crédito"], #"Taxa Total",
                     "Valor": [projecao_formatada] # f"{taxa_total * 100:.2f}%"]
                 })
 
