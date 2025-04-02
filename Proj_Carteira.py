@@ -9,8 +9,12 @@ import os
 # KEY_PATH = os.environ.get("KEY_PATH")
 # BIGQUERY = bq('confianca-fidc', KEY_PATH)
 
-# Configurar a localização para o formato brasileiro
-locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+try:
+    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+except locale.Error:
+    locale.setlocale(locale.LC_ALL, 'C.UTF-8')  # Fallback para um locale genérico
+    # Ou simplesmente usar o padrão do sistema:
+    # locale.setlocale(locale.LC_ALL, '')
 
 def calculate_projections(faturamento, prazo_medio):
     # Define a taxa de acordo com o faturamento
